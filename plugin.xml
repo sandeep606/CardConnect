@@ -19,16 +19,20 @@
       <header-file src="src/ios/APIBridge.h"/>
       <source-file src="src/ios/APIBridge.m"/>
 
-      <header-file src="src/ios/RootViewController.h"/>
-      <source-file src="src/ios/RootViewController.m"/>
+      <header-file src="src/ios/AppHelper.h"/>
+      <source-file src="src/ios/AppHelper.m"/>
 
       <header-file src="src/ios/CardEntryViewController.h"/>
       <source-file src="src/ios/CardEntryViewController.m"/>
+
+      <header-file src="src/ios/RootViewController.h"/>
+      <source-file src="src/ios/RootViewController.m"/>
 
       <header-file src="src/ios/SwiperConfigurationViewController.h"/>
       <source-file src="src/ios/SwiperConfigurationViewController.m"/>
 
       <resource-file src="src/ios/Main.storyboard"/>
+
 
    </platform>
 </plugin>
