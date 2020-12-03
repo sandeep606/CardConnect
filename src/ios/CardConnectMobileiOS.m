@@ -32,6 +32,13 @@
     [CCCAPI instance].enableLogging = YES;    
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Account added"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
+    self.view = self.webView.superview;
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: [NSBundle mainBundle]];
+    UIViewController *vc = [sb instantiateInitialViewController];
+    [self.view addSubview:vc.view];
+
 }
 
 

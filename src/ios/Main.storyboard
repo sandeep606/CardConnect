@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bHy-E0-I1D">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="KuJ-X1-Qsx">
+            <objects>
+                <viewController id="bHy-E0-I1D" customClass="RootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u1O-15-U66"/>
+                        <viewControllerLayoutGuide type="bottom" id="W7e-Yk-Bbj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oH0-aW-MI2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bmJ-IF-Hm6">
+                                <rect key="frame" x="112" y="141.5" width="151" height="384"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="endpoint" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZTF-vM-OSD">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="bHy-E0-I1D" id="3fa-b7-j0I"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPA-9O-slI">
+                                        <rect key="frame" x="0.0" y="54" width="151" height="30"/>
+                                        <state key="normal" title="Configure Swiper"/>
+                                        <connections>
+                                            <segue destination="BdG-sO-kpj" kind="show" id="3lk-vQ-EyV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hi1-dL-TBv">
+                                        <rect key="frame" x="0.0" y="104" width="151" height="30"/>
+                                        <state key="normal" title="Tokenization Methods"/>
+                                        <connections>
+                                            <segue destination="eEd-Bi-x7j" kind="show" id="NIX-SF-aSc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04h-Fm-jOL">
+                                        <rect key="frame" x="0.0" y="154" width="151" height="30"/>
+                                        <state key="normal" title="ApplePay Test"/>
+                                        <connections>
+                                            <action selector="customApplePayPressed:" destination="bHy-E0-I1D" eventType="touchUpInside" id="yln-5g-BSz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQD-KO-VcY">
+                                        <rect key="frame" x="0.0" y="204" width="151" height="30"/>
+                                        <state key="normal" title="Modal Profile Flow"/>
+                                        <connections>
+                                            <action selector="integratedFlowPressed:" destination="bHy-E0-I1D" eventType="touchUpInside" id="KWU-rv-zBV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHQ-mb-egc">
+                                        <rect key="frame" x="0.0" y="254" width="151" height="30"/>
+                                        <state key="normal" title="Stack Profile Flow"/>
+                                        <connections>
+                                            <action selector="stackIntegratedFlowPressed:" destination="bHy-E0-I1D" eventType="touchUpInside" id="WSP-BQ-LcU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64I-tm-YOc">
+                                        <rect key="frame" x="0.0" y="304" width="151" height="30"/>
+                                        <state key="normal" title="Theming"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVz-1l-P6G">
+                                        <rect key="frame" x="0.0" y="354" width="151" height="30"/>
+                                        <state key="normal" title="Signature"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bmJ-IF-Hm6" firstAttribute="centerX" secondItem="oH0-aW-MI2" secondAttribute="centerX" id="aKi-nu-C1Y"/>
+                            <constraint firstItem="bmJ-IF-Hm6" firstAttribute="centerY" secondItem="oH0-aW-MI2" secondAttribute="centerY" id="cee-gW-M2A"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aKF-7x-nZa"/>
+                    <connections>
+                        <outlet property="customApplePayButton" destination="04h-Fm-jOL" id="m8g-hB-uD9"/>
+                        <outlet property="endpointTextField" destination="ZTF-vM-OSD" id="7d5-Lk-aiC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaN-IL-xNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-167" y="62"/>
+        </scene>
+        <!--Swiper Configuration View Controller-->
+        <scene sceneID="cI4-kI-8uC">
+            <objects>
+                <viewController id="BdG-sO-kpj" customClass="SwiperConfigurationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ch9-t6-Pcx"/>
+                        <viewControllerLayoutGuide type="bottom" id="gTp-xA-LHd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ubQ-fb-qRO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tsf-cV-gjW">
+                                <rect key="frame" x="14" y="58" width="347" height="32"/>
+                                <segments>
+                                    <segment title="BBPOS"/>
+                                    <segment title="IDTech VP3300"/>
+                                    <segment title="IDTech VP3600"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControllerValueChanged:" destination="BdG-sO-kpj" eventType="valueChanged" id="IC0-fp-IKD"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-6e-SW7">
+                                <rect key="frame" x="0.0" y="129" width="375" height="518"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BdG-sO-kpj" id="CpA-Wl-Vyh"/>
+                                    <outlet property="delegate" destination="BdG-sO-kpj" id="v6R-04-GOz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gTp-xA-LHd" firstAttribute="top" secondItem="e1u-6e-SW7" secondAttribute="bottom" id="113-37-wa1"/>
+                            <constraint firstAttribute="trailing" secondItem="e1u-6e-SW7" secondAttribute="trailing" id="Qcc-1e-yCV"/>
+                            <constraint firstItem="e1u-6e-SW7" firstAttribute="leading" secondItem="ubQ-fb-qRO" secondAttribute="leading" id="RV9-i0-GOC"/>
+                            <constraint firstItem="tsf-cV-gjW" firstAttribute="centerX" secondItem="ubQ-fb-qRO" secondAttribute="centerX" id="ZzL-Ee-Xl5"/>
+                            <constraint firstItem="e1u-6e-SW7" firstAttribute="top" secondItem="tsf-cV-gjW" secondAttribute="bottom" constant="40" id="aQb-Au-veT"/>
+                            <constraint firstItem="tsf-cV-gjW" firstAttribute="top" secondItem="Ch9-t6-Pcx" secondAttribute="bottom" constant="58" id="n2O-lX-bb1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="tsf-cV-gjW" id="8Mq-oH-VPc"/>
+                        <outlet property="tableView" destination="e1u-6e-SW7" id="Srn-QF-azN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1hJ-uj-AoC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="-615.74212893553226"/>
+        </scene>
+        <!--Card Entry View Controller-->
+        <scene sceneID="Qtc-zV-fk5">
+            <objects>
+                <viewController id="eEd-Bi-x7j" customClass="CardEntryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tCo-Tp-sgq"/>
+                        <viewControllerLayoutGuide type="bottom" id="vjE-Ge-rTC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9bV-Sj-r39">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S1X-B1-uAq">
+                                <rect key="frame" x="36" y="108" width="303" height="166"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UVU-pQ-oVP">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Qtp-9A-XtS" id="cmp-gQ-pmq"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Expiration Date" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="B82-kS-8ep">
+                                        <rect key="frame" x="0.0" y="44" width="303" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="PBf-9q-sUO" id="OME-U1-FeQ"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="p74-JG-cKg">
+                                        <rect key="frame" x="0.0" y="88" width="303" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="fnb-LQ-nhF" id="0yC-69-qZD"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Postal Code" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-BZ-MNE">
+                                        <rect key="frame" x="0.0" y="132" width="303" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-yD-NHN">
+                                <rect key="frame" x="144.5" y="69" width="86" height="32"/>
+                                <segments>
+                                    <segment title="*"/>
+                                    <segment title="&amp;"/>
+                                    <segment title="-"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="eEd-Bi-x7j" eventType="valueChanged" id="LOd-je-Oon"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qWJ-vg-WcA">
+                                <rect key="frame" x="27.5" y="30" width="320" height="32"/>
+                                <segments>
+                                    <segment title="MaskedLast4"/>
+                                    <segment title="Last4"/>
+                                    <segment title="FirstAndLast4"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="eEd-Bi-x7j" eventType="valueChanged" id="oTE-pJ-L8g"/>
+                                </connections>
+                            </segmentedControl>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iaG-s9-PwK">
+                                <rect key="frame" x="177.5" y="313.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OrC-8j-qPc">
+                                <rect key="frame" x="78" y="343.5" width="219" height="31"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cu9-UV-MFX">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwS-K8-Gea">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="inq-dO-6QW">
+                                                <rect key="frame" x="91" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrk-jJ-Azn">
+                                        <rect key="frame" x="160" y="0.0" width="59" height="31"/>
+                                        <state key="normal" title="Connect"/>
+                                        <connections>
+                                            <action selector="connectPressed:" destination="eEd-Bi-x7j" eventType="touchUpInside" id="Vdz-s7-Fww"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiper Connection Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaR-9Z-r5C">
+                                <rect key="frame" x="88.5" y="384.5" width="198.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disconnected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsc-Kb-Mcj">
+                                <rect key="frame" x="134.5" y="413" width="106" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpH-rW-LKJ">
+                                <rect key="frame" x="162.5" y="441" width="50" height="30"/>
+                                <state key="normal" title="Restart"/>
+                                <connections>
+                                    <action selector="restartReaderPressed:" destination="eEd-Bi-x7j" eventType="touchUpInside" id="VXG-JQ-PHn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aaR-9Z-r5C" firstAttribute="centerX" secondItem="iaG-s9-PwK" secondAttribute="centerX" id="0CM-gC-GC9"/>
+                            <constraint firstItem="S1X-B1-uAq" firstAttribute="leading" secondItem="9bV-Sj-r39" secondAttribute="leadingMargin" constant="20" id="16c-DK-23X"/>
+                            <constraint firstItem="OrC-8j-qPc" firstAttribute="centerX" secondItem="iaG-s9-PwK" secondAttribute="centerX" id="3oh-nm-Kl1"/>
+                            <constraint firstItem="qWJ-vg-WcA" firstAttribute="top" secondItem="tCo-Tp-sgq" secondAttribute="bottom" constant="30" id="9Jn-Ez-tvQ"/>
+                            <constraint firstItem="qWJ-vg-WcA" firstAttribute="centerX" secondItem="Snv-yD-NHN" secondAttribute="centerX" id="Fof-pb-6gb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S1X-B1-uAq" secondAttribute="trailing" constant="20" id="JIg-s5-ClV"/>
+                            <constraint firstItem="OrC-8j-qPc" firstAttribute="top" secondItem="iaG-s9-PwK" secondAttribute="bottom" constant="10" id="JVD-V0-IhU"/>
+                            <constraint firstItem="vpH-rW-LKJ" firstAttribute="centerX" secondItem="Rsc-Kb-Mcj" secondAttribute="centerX" id="Nzl-0i-D2b"/>
+                            <constraint firstItem="vpH-rW-LKJ" firstAttribute="top" secondItem="Rsc-Kb-Mcj" secondAttribute="bottom" constant="7.5" id="SWX-6x-Rki"/>
+                            <constraint firstItem="Snv-yD-NHN" firstAttribute="top" secondItem="qWJ-vg-WcA" secondAttribute="bottom" constant="8" id="WM3-ia-r0F"/>
+                            <constraint firstItem="aaR-9Z-r5C" firstAttribute="top" secondItem="OrC-8j-qPc" secondAttribute="bottom" constant="10" id="Yqv-ny-te9"/>
+                            <constraint firstItem="S1X-B1-uAq" firstAttribute="top" secondItem="Snv-yD-NHN" secondAttribute="bottom" constant="8" id="gnX-WC-Asv"/>
+                            <constraint firstItem="iaG-s9-PwK" firstAttribute="centerY" secondItem="9bV-Sj-r39" secondAttribute="centerY" id="j9J-02-NyW"/>
+                            <constraint firstItem="Snv-yD-NHN" firstAttribute="centerX" secondItem="S1X-B1-uAq" secondAttribute="centerX" id="jbQ-Yj-Aae"/>
+                            <constraint firstItem="Rsc-Kb-Mcj" firstAttribute="top" secondItem="aaR-9Z-r5C" secondAttribute="bottom" constant="8" id="msr-jn-Unb"/>
+                            <constraint firstItem="Rsc-Kb-Mcj" firstAttribute="centerX" secondItem="iaG-s9-PwK" secondAttribute="centerX" id="wyd-jY-PSJ"/>
+                            <constraint firstItem="iaG-s9-PwK" firstAttribute="centerX" secondItem="9bV-Sj-r39" secondAttribute="centerX" id="xbc-yr-hy0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="I0V-NX-iBU">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Generate Token" id="Lnu-YH-UNN">
+                            <connections>
+                                <action selector="createPressed:" destination="eEd-Bi-x7j" id="mY5-9X-HI3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CVVTextField" destination="p74-JG-cKg" id="puE-cW-eor"/>
+                        <outlet property="activityIndicator" destination="iaG-s9-PwK" id="gJM-Fi-d5I"/>
+                        <outlet property="cardFormatterDelegate" destination="Qtp-9A-XtS" id="cT5-vg-kwt"/>
+                        <outlet property="cardNumberTextField" destination="UVU-pQ-oVP" id="fBf-3b-tyY"/>
+                        <outlet property="connectButton" destination="rrk-jJ-Azn" id="gwW-5x-sYg"/>
+                        <outlet property="cvvFormatterDelegate" destination="fnb-LQ-nhF" id="b8e-M3-sD7"/>
+                        <outlet property="expirationDateTextField" destination="B82-kS-8ep" id="y8E-4a-Ad6"/>
+                        <outlet property="expirationFormatterDelegate" destination="PBf-9q-sUO" id="jHq-7g-QRB"/>
+                        <outlet property="generateTokenBarButton" destination="Lnu-YH-UNN" id="FZu-bw-PF7"/>
+                        <outlet property="maskCharacterSegmentedControl" destination="Snv-yD-NHN" id="4PB-uR-HLm"/>
+                        <outlet property="maskFormatSegmentedControl" destination="qWJ-vg-WcA" id="f9q-uF-NJv"/>
+                        <outlet property="postalCodeTextField" destination="Jyg-BZ-MNE" id="fLy-YG-JgJ"/>
+                        <outlet property="restartReaderButton" destination="vpH-rW-LKJ" id="9KV-fU-HT2"/>
+                        <outlet property="swipeOnlySwitch" destination="inq-dO-6QW" id="pFx-Nv-3c5"/>
+                        <outlet property="swiperStatus" destination="Rsc-Kb-Mcj" id="C1a-ru-R9L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90c-VB-i1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Qtp-9A-XtS" customClass="CCCCardFormatterDelegate">
+                    <connections>
+                        <outlet property="originalDelegate" destination="eEd-Bi-x7j" id="fX3-is-QrK"/>
+                    </connections>
+                </customObject>
+                <customObject id="PBf-9q-sUO" customClass="CCCExpirationDateFormatterDelegate">
+                    <connections>
+                        <outlet property="originalDelegate" destination="eEd-Bi-x7j" id="gNf-yS-z42"/>
+                    </connections>
+                </customObject>
+                <customObject id="fnb-LQ-nhF" customClass="CCCCVVFormatterDelegate">
+                    <connections>
+                        <outlet property="originalDelegate" destination="eEd-Bi-x7j" id="vQR-l2-r3e"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="735" y="-426"/>
+        </scene>
+    </scenes>
+</document>
