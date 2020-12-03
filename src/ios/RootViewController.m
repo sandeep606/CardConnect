@@ -4,6 +4,7 @@
 #import "APIBridge.h"
 
 #import <PassKit/PassKit.h>
+#import <CardConnectConsumerSDK/CardConnectConsumerSDK.h>
 
 @interface RootViewController () <UITextFieldDelegate, CCCPaymentControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
@@ -28,6 +29,10 @@
     self.theme.disclaimerText = @"Put some explanatory text here. Tell the user about whatever legal stuff you need to.";
     self.paymentController = [[CCCPaymentController alloc] initWithRootView:self apiBridge:self.apiBridge delegate:self theme:self.theme];
 
+    self.customApplePayButton.hidden = YES;
+    
+    //MULTI-LINE COMMENTS
+    /*
     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     if (!(delegate.merchantID.length > 0 &&
         [PKPaymentAuthorizationViewController canMakePayments]))
@@ -53,6 +58,8 @@
 
         self.paymentController.paymentRequest = request;
     }
+    
+    */
 }
     
 - (void)viewWillAppear:(BOOL)animated
@@ -81,22 +88,22 @@
 
 - (IBAction)customApplePayPressed:(id)sender
 {
-    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-
-    PKPaymentRequest *request = [PKPaymentRequest new];
-    request.currencyCode = @"USD";
-    request.countryCode = @"US";
-    request.merchantIdentifier = delegate.merchantID;
-
-    NSDecimalNumber *total = [NSDecimalNumber decimalNumberWithString:@"1.00"];
-    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:NSLocalizedString(@"Your Company name", @"ApplePay total label")
-                                                                        amount:total]];
-    request.supportedNetworks = @[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex];
-    request.merchantCapabilities = PKMerchantCapability3DS;
-
-    self.applePayViewController = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-    self.applePayViewController.delegate = self;
-    [self presentViewController:self.applePayViewController animated:YES completion:nil];
+//    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//
+//    PKPaymentRequest *request = [PKPaymentRequest new];
+//    request.currencyCode = @"USD";
+//    request.countryCode = @"US";
+//    request.merchantIdentifier = delegate.merchantID;
+//
+//    NSDecimalNumber *total = [NSDecimalNumber decimalNumberWithString:@"1.00"];
+//    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:NSLocalizedString(@"Your Company name", @"ApplePay total label")
+//                                                                        amount:total]];
+//    request.supportedNetworks = @[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex];
+//    request.merchantCapabilities = PKMerchantCapability3DS;
+//
+//    self.applePayViewController = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+//    self.applePayViewController.delegate = self;
+//    [self presentViewController:self.applePayViewController animated:YES completion:nil];
 }
 
 - (IBAction)integratedFlowPressed:(id)sender

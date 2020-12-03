@@ -8,7 +8,8 @@
 
 #import "SwiperConfigurationViewController.h"
 
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
+#import "AppHelper.h"
 
 @interface SwiperConfigurationViewController () <UITableViewDelegate, UITableViewDataSource, CCCSwiperControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -31,12 +32,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    AppHelper *helper = [AppHelper sharedClass];
+//    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     if (self.segmentedControl.selectedSegmentIndex == CCCSwiperTypeBBPOS)
     {
-        delegate.swiperType = CCCSwiperTypeBBPOS;
-        delegate.device = nil;
+        helper.swiperType = CCCSwiperTypeBBPOS;
+        helper.device = nil;
     }
     
     [_swiper releaseDevice];
@@ -162,10 +165,11 @@
     if ([error.domain isEqualToString:CCCSwiperErrorDomain] &&
         error.code == CCCSwiperErrorCanceledTransaction)
     {
-        AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         
-        delegate.swiperType = self.segmentedControl.selectedSegmentIndex == 1?CCCSwiperTypeVP3300:CCCSwiperTypeVP3600;
-        delegate.device = self.tempDevice;
+        AppHelper *helper = [AppHelper sharedClass];
+                
+        helper.swiperType = self.segmentedControl.selectedSegmentIndex == 1?CCCSwiperTypeVP3300:CCCSwiperTypeVP3600;
+        helper.device = self.tempDevice;
         
         if (self.alert)
         {

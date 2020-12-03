@@ -28,6 +28,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CardConnectConsumerSDK/CardConnectConsumerSDK.h>
 
 @interface APIBridge : NSObject <CCCAPIBridgeProtocol>
 

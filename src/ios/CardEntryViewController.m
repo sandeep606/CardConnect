@@ -2,7 +2,7 @@
 
 #import <PassKit/PassKit.h>
 
-#import "AppDelegate.h"
+#import "AppHelper.h"
 
 @interface CardEntryViewController () <CCCFormatterDelegateExtension,CCCSwiperControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
@@ -221,14 +221,15 @@
 
 - (IBAction)connectPressed:(UIButton*)sender
 {
-    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    _swiper = [[CCCSwiperController alloc] initWithDelegate:self swiper:appDelegate.swiperType loggingEnabled:YES];
+    AppHelper *helper = [AppHelper sharedClass];
     
-    if (appDelegate.swiperType != CCCSwiperTypeBBPOS &&
-        appDelegate.device)
+    _swiper = [[CCCSwiperController alloc] initWithDelegate:self swiper:helper.swiperType loggingEnabled:YES];
+    
+    if (helper.swiperType != CCCSwiperTypeBBPOS &&
+        helper.device)
     {
-        [_swiper connectToDevice:appDelegate.device.uuid mode:self.swipeOnlySwitch.isOn?CCCCardReadModeSwipe:CCCCardReadModeSwipeDip];
+        [_swiper connectToDevice:helper.device.uuid mode:self.swipeOnlySwitch.isOn?CCCCardReadModeSwipe:CCCCardReadModeSwipeDip];
     }
 }
 
@@ -412,9 +413,10 @@
         }]];
     }
     
+    AppHelper *helper = [AppHelper sharedClass];
+    
     if (self.swipeOnlySwitch.isOn ||
-        ((AppDelegate*)[UIApplication sharedApplication].delegate).swiperType == CCCSwiperTypeBBPOS)
-    {
+    helper.swiperType == CCCSwiperTypeBBPOS){
         self.alert.message = @"Swipe Card";
     }
     
