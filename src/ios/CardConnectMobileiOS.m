@@ -9,6 +9,7 @@
   // Member variables go here.
 }
 @property (nonatomic, strong) CCCCardInfo *card;
+@property (nonatomic,strong) UIView *view;
 
 
 - (void)initialisePayment:(CDVInvokedUrlCommand*)command;
