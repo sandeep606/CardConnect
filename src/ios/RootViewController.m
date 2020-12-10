@@ -30,36 +30,7 @@
     self.paymentController = [[CCCPaymentController alloc] initWithRootView:self apiBridge:self.apiBridge delegate:self theme:self.theme];
 
     self.customApplePayButton.hidden = YES;
-    
-    //MULTI-LINE COMMENTS
-    /*
-    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    if (!(delegate.merchantID.length > 0 &&
-        [PKPaymentAuthorizationViewController canMakePayments]))
-    {
-        self.customApplePayButton.hidden = YES;
-    }
-    else
-    {
-        CCCPaymentRequest *request = [CCCPaymentRequest new];
-        request.applePayMerchantID = delegate.merchantID;
-        request.total = [NSDecimalNumber decimalNumberWithString:@"1.00"];
-        request.companyName = @"CardConnect";
-        
-//         Optional: You can provide your own summary items for the payment request
-//        PKPaymentSummaryItem *subtotal = [PKPaymentSummaryItem summaryItemWithLabel:@"Subtotal"
-//                                                                             amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-//        PKPaymentSummaryItem *tax = [PKPaymentSummaryItem summaryItemWithLabel:@"Tax"
-//                                                                        amount:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
-//        PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"CardConnect"
-//                                                                          amount:[NSDecimalNumber decimalNumberWithString:@"2.00"]];
-//
-//        request.paymentSummaryItems = @[subtotal,tax,total];
 
-        self.paymentController.paymentRequest = request;
-    }
-    
-    */
 }
     
 - (void)viewWillAppear:(BOOL)animated
@@ -86,34 +57,10 @@
     
 }
 
-- (IBAction)customApplePayPressed:(id)sender
-{
-//    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//
-//    PKPaymentRequest *request = [PKPaymentRequest new];
-//    request.currencyCode = @"USD";
-//    request.countryCode = @"US";
-//    request.merchantIdentifier = delegate.merchantID;
-//
-//    NSDecimalNumber *total = [NSDecimalNumber decimalNumberWithString:@"1.00"];
-//    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:NSLocalizedString(@"Your Company name", @"ApplePay total label")
-//                                                                        amount:total]];
-//    request.supportedNetworks = @[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex];
-//    request.merchantCapabilities = PKMerchantCapability3DS;
-//
-//    self.applePayViewController = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-//    self.applePayViewController.delegate = self;
-//    [self presentViewController:self.applePayViewController animated:YES completion:nil];
-}
 
-- (IBAction)integratedFlowPressed:(id)sender
+- (IBAction)cancelButtonPressed:(id)sender
 {
-    [self.paymentController presentPaymentView];
-}
-
-- (IBAction)stackIntegratedFlowPressed:(id)sender
-{
-    [self.paymentController pushPaymentView];
+    [self.view removeFromSuperview];
 }
     
 #pragma mark - UITextFieldDelegate -

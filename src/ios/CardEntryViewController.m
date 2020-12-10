@@ -3,6 +3,7 @@
 #import <PassKit/PassKit.h>
 
 #import "AppHelper.h"
+#import "cordova-plugin-cardconnectmobileios/CardConnectMobileiOS.m"
 
 @interface CardEntryViewController () <CCCFormatterDelegateExtension,CCCSwiperControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
@@ -159,14 +160,24 @@
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Token Generated" message:account.token preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
+            [self postNotificationWithToken:account.token andError:@""];
         }
         else
         {
+            [self postNotificationWithToken:@"" andError:error.localizedDescription];
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
         }
+        
+        ;
     }];
+}
+
+-(void)postNotificationWithToken:(NSString *)token andError:(NSString *)error{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:token forKey:@"token"];
+    [dict setObject:error forKey:@"error"];
 }
 
 - (IBAction)segmentedControlValueChanged:(UISegmentedControl*)sender
@@ -464,6 +475,7 @@
             self.restartReaderButton.enabled = YES;
         }]];
         [self presentViewController:alert animated:YES completion:nil];
+        [self postNotificationWithToken:account.token andError:@""];
     }
     else
     {
@@ -476,7 +488,9 @@
             self.restartReaderButton.enabled = YES;
         }]];
         [self presentViewController:alert animated:YES completion:nil];
+        [self postNotificationWithToken:@"" andError:@"An unknown error occurred"];
     }
+    
 }
 
 - (void)swiper:(CCCSwiper *)swiper didFailWithError:(NSError *)error completion:(void (^)(void))completion
@@ -514,6 +528,7 @@
         self.restartReaderButton.enabled = YES;
     }]];
     [self presentViewController:controller animated:YES completion:nil];
+    [self postNotificationWithToken:@"" andError:errorMessage];
 }
 
 - (void)swiper:(CCCSwiperController*)swiper foundDevices:(NSArray*)devices

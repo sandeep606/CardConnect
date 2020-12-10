@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bmJ-IF-Hm6">
-                                <rect key="frame" x="112" y="141.5" width="151" height="384"/>
+                                <rect key="frame" x="112" y="266.5" width="151" height="134"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="endpoint" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZTF-vM-OSD">
                                         <rect key="frame" x="0.0" y="0.0" width="151" height="34"/>
@@ -44,47 +44,26 @@
                                             <segue destination="eEd-Bi-x7j" kind="show" id="NIX-SF-aSc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04h-Fm-jOL">
-                                        <rect key="frame" x="0.0" y="154" width="151" height="30"/>
-                                        <state key="normal" title="ApplePay Test"/>
-                                        <connections>
-                                            <action selector="customApplePayPressed:" destination="bHy-E0-I1D" eventType="touchUpInside" id="yln-5g-BSz"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQD-KO-VcY">
-                                        <rect key="frame" x="0.0" y="204" width="151" height="30"/>
-                                        <state key="normal" title="Modal Profile Flow"/>
-                                        <connections>
-                                            <action selector="integratedFlowPressed:" destination="bHy-E0-I1D" eventType="touchUpInside" id="KWU-rv-zBV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHQ-mb-egc">
-                                        <rect key="frame" x="0.0" y="254" width="151" height="30"/>
-                                        <state key="normal" title="Stack Profile Flow"/>
-                                        <connections>
-                                            <action selector="stackIntegratedFlowPressed:" destination="bHy-E0-I1D" eventType="touchUpInside" id="WSP-BQ-LcU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64I-tm-YOc">
-                                        <rect key="frame" x="0.0" y="304" width="151" height="30"/>
-                                        <state key="normal" title="Theming"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVz-1l-P6G">
-                                        <rect key="frame" x="0.0" y="354" width="151" height="30"/>
-                                        <state key="normal" title="Signature"/>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aus-vc-pfG">
+                                <rect key="frame" x="25" y="20" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="bHy-E0-I1D" eventType="touchUpInside" id="Da8-2U-psq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Aus-vc-pfG" firstAttribute="top" secondItem="u1O-15-U66" secondAttribute="bottom" constant="20" id="MIB-Xf-usy"/>
                             <constraint firstItem="bmJ-IF-Hm6" firstAttribute="centerX" secondItem="oH0-aW-MI2" secondAttribute="centerX" id="aKi-nu-C1Y"/>
                             <constraint firstItem="bmJ-IF-Hm6" firstAttribute="centerY" secondItem="oH0-aW-MI2" secondAttribute="centerY" id="cee-gW-M2A"/>
+                            <constraint firstItem="Aus-vc-pfG" firstAttribute="leading" secondItem="oH0-aW-MI2" secondAttribute="leading" constant="25" id="dbU-BK-tWw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aKF-7x-nZa"/>
                     <connections>
-                        <outlet property="customApplePayButton" destination="04h-Fm-jOL" id="m8g-hB-uD9"/>
                         <outlet property="endpointTextField" destination="ZTF-vM-OSD" id="7d5-Lk-aiC"/>
                     </connections>
                 </viewController>
