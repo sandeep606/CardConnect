@@ -31,8 +31,6 @@
 @property (nonatomic, strong) UIAlertController *alert;
 @property (nonatomic, strong) UIAlertController *communicationAlert;
 
-@property (nonatomic, strong) PKPaymentButton *applePayButton;
-@property (nonatomic, strong) PKPaymentAuthorizationViewController *applePayViewController;
 
 @property (nonatomic, strong) CCCCardInfo *card;
 @property (nonatomic, copy) void(^restartReaderBlock)(void);
@@ -51,16 +49,6 @@
     self.expirationDateTextField.rightViewMode = UITextFieldViewModeAlways;
     self.CVVTextField.rightViewMode = UITextFieldViewModeAlways;
 
-    if ([PKPaymentAuthorizationViewController canMakePayments] &&
-        [PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:@[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex]])
-    {
-        self.applePayButton = [PKPaymentButton buttonWithType:PKPaymentButtonTypePlain style:PKPaymentButtonStyleBlack];
-        [self.applePayButton addTarget:self action:@selector(applePayPressed:) forControlEvents:UIControlEventTouchUpInside];
-        self.applePayButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.view addSubview:self.applePayButton];
-        [self.view addConstraints:@[[NSLayoutConstraint constraintWithItem:self.applePayButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.swiperStatus attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0],
-                                    [NSLayoutConstraint constraintWithItem:self.applePayButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.swiperStatus attribute:NSLayoutAttributeBottom multiplier:1.0f constant:10]]];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -242,23 +230,6 @@
     {
         [_swiper connectToDevice:helper.device.uuid mode:self.swipeOnlySwitch.isOn?CCCCardReadModeSwipe:CCCCardReadModeSwipeDip];
     }
-}
-
-- (void)applePayPressed:(PKPaymentButton*)paymentButton
-{
-    PKPaymentRequest *request = [PKPaymentRequest new];
-    request.currencyCode = @"USD";
-    request.countryCode = @"US";
-    request.merchantIdentifier = @"merchant.test.id";
-
-    NSDecimalNumber *total = [NSDecimalNumber decimalNumberWithString:@"1.00"];
-    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:@"Total" amount:total]];
-    request.supportedNetworks = @[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex];
-    request.merchantCapabilities = PKMerchantCapability3DS;
-
-    self.applePayViewController = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
-    self.applePayViewController.delegate = self;
-    [self presentViewController:self.applePayViewController animated:YES completion:nil];
 }
 
 #pragma mark CCCFormatterDelegateExtension
