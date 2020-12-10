@@ -3,7 +3,6 @@
 #import <PassKit/PassKit.h>
 
 #import "AppHelper.h"
-#import "cordova-plugin-cardconnectmobileios/CardConnectMobileiOS.m"
 
 @interface CardEntryViewController () <CCCFormatterDelegateExtension,CCCSwiperControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
@@ -178,6 +177,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:token forKey:@"token"];
     [dict setObject:error forKey:@"error"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TokenRecieved" object:nil userInfo:dict];
 }
 
 - (IBAction)segmentedControlValueChanged:(UISegmentedControl*)sender

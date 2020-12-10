@@ -4,7 +4,7 @@
 // #import <PassKit/PassKit.h>
 #import <CardConnectConsumerSDK/CardConnectConsumerSDK.h>
 
-static NSString *TokenRecieved = @"TokenRecieved";
+
 static int cardConnectViewTag = 999;
 
 @interface CardConnectMobileiOS : CDVPlugin {
@@ -39,7 +39,8 @@ static int cardConnectViewTag = 999;
     UIViewController *vc = [sb instantiateInitialViewController];
     vc.view.tag = cardConnectViewTag;
     [self.view addSubview:vc.view];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tokenReceived:) name:TokenRecieved object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tokenReceived:) name:@"TokenRecieved" object:nil];
+
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Account added"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
