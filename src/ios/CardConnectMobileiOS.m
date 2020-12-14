@@ -4,9 +4,6 @@
 // #import <PassKit/PassKit.h>
 #import <CardConnectConsumerSDK/CardConnectConsumerSDK.h>
 
-
-static int cardConnectViewTag = 999;
-
 @interface CardConnectMobileiOS : CDVPlugin {
     
   // Member variables go here.
@@ -14,6 +11,7 @@ static int cardConnectViewTag = 999;
 }
 @property (nonatomic, strong) CCCCardInfo *card;
 @property (nonatomic,strong) UIView *view;
+@property (nonatomic,strong)UINavigationController *navigationController;
 
 
 - (void)initialisePayment:(CDVInvokedUrlCommand*)command;
@@ -34,16 +32,20 @@ static int cardConnectViewTag = 999;
         [CCCAPI instance].endpoint = @"fts.cardconnect.com";
     }
     [CCCAPI instance].enableLogging = YES;
-    self.view = self.webView.superview;
+//    self.view = self.webView.superview;
     UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: [NSBundle mainBundle]];
-    UIViewController *vc = [sb instantiateInitialViewController];
-    vc.view.tag = cardConnectViewTag;
-    [self.view addSubview:vc.view];
+    self.navigationController = [sb instantiateInitialViewController];
+
+    self.navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tokenReceived:) name:@"TokenRecieved" object:nil];
 
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Account added"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    ;
+    [self.viewController presentViewController:self.navigationController animated:YES completion:^{
+        
+    }];
 }
 
 - (void)tokenReceived:(NSNotification *)notification{
@@ -72,7 +74,12 @@ static int cardConnectViewTag = 999;
 }
 
 - (void)removeView:(CDVInvokedUrlCommand*)command{
-    [[self.view viewWithTag:cardConnectViewTag] removeFromSuperview];
+
+    NSLog(@"self.viewcontroller=== %@", self.viewController);
+    NSLog(@"self.viewcontroller=== %@", self.viewController.childViewControllers);
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"View Removed"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
