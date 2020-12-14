@@ -50,15 +50,15 @@
 
 - (void)tokenReceived:(NSNotification *)notification{
     
-    NSLog(@"token received is %@", notification.userInfo);
+    NSLog(@"CardConnectMobileiOS.m token received is %@", notification.userInfo);
     NSDictionary *infoDict = notification.userInfo;
-    NSString *token = [infoDict objectForKey:@"token"];
+    NSString *status = [infoDict objectForKey:@"status"];
     CDVPluginResult* pluginResult;
-    if (token == nil || [token  isEqual: @""]){
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[infoDict objectForKey:@"error"]];
+    if ([status isEqual: @"0"]){
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:infoDict];
     }
     else{
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[infoDict objectForKey:@"token"]];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:infoDict];
     }
      [self.commandDelegate sendPluginResult:pluginResult callbackId:urlCommand.callbackId];
 }
@@ -75,8 +75,6 @@
 
 - (void)removeView:(CDVInvokedUrlCommand*)command{
 
-    NSLog(@"self.viewcontroller=== %@", self.viewController);
-    NSLog(@"self.viewcontroller=== %@", self.viewController.childViewControllers);
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         
     }];
