@@ -39,10 +39,6 @@
     self.navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tokenReceived:) name:@"TokenRecieved" object:nil];
 
-    
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Account added"];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    ;
     [self.viewController presentViewController:self.navigationController animated:YES completion:^{
         
     }];

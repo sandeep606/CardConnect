@@ -28,6 +28,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+        [self addBarButtonItem];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    [self setTitle:@"Select Device"];
+}
+
+-(void)addBarButtonItem{
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
+    [self.navigationItem setLeftBarButtonItem:cancelButton];
+    
+}
+
+- (IBAction)cancelButtonPressed:(id)sender
+{
+//    [self.view removeFromSuperview];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

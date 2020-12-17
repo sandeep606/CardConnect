@@ -30,9 +30,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Select Device"/>
-                                        <connections>
-                                            <segue destination="BdG-sO-kpj" kind="show" id="3lk-vQ-EyV"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hi1-dL-TBv">
                                         <rect key="frame" x="0.0" y="60" width="250" height="40"/>
@@ -42,9 +39,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Make Payment"/>
-                                        <connections>
-                                            <segue destination="eEd-Bi-x7j" kind="show" id="NIX-SF-aSc"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -63,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaN-IL-xNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-167" y="62"/>
+            <point key="canvasLocation" x="-110" y="838"/>
         </scene>
         <!--Swiper Configuration View Controller-->
         <scene sceneID="cI4-kI-8uC">
@@ -78,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tsf-cV-gjW">
-                                <rect key="frame" x="14" y="102" width="347" height="32"/>
+                                <rect key="frame" x="14" y="94" width="347" height="32"/>
                                 <segments>
                                     <segment title="BBPOS"/>
                                     <segment title="IDTech VP3300"/>
@@ -89,22 +83,37 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-6e-SW7">
-                                <rect key="frame" x="0.0" y="173" width="375" height="494"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="402"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BdG-sO-kpj" id="CpA-Wl-Vyh"/>
                                     <outlet property="delegate" destination="BdG-sO-kpj" id="v6R-04-GOz"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpj-9e-Str">
+                                <rect key="frame" x="40" y="595" width="295" height="40"/>
+                                <color key="backgroundColor" red="0.29682078960000002" green="0.52825689320000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="z8H-V6-eMM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Make Payment"/>
+                                <connections>
+                                    <segue destination="eEd-Bi-x7j" kind="show" id="whF-mq-sBh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gTp-xA-LHd" firstAttribute="top" secondItem="e1u-6e-SW7" secondAttribute="bottom" id="113-37-wa1"/>
+                            <constraint firstAttribute="trailing" secondItem="kpj-9e-Str" secondAttribute="trailing" constant="40" id="6YA-Zf-zor"/>
+                            <constraint firstItem="kpj-9e-Str" firstAttribute="top" secondItem="e1u-6e-SW7" secondAttribute="bottom" constant="28" id="FdQ-up-gYu"/>
+                            <constraint firstItem="kpj-9e-Str" firstAttribute="leading" secondItem="ubQ-fb-qRO" secondAttribute="leading" constant="40" id="L7q-DE-Rs8"/>
+                            <constraint firstItem="gTp-xA-LHd" firstAttribute="top" secondItem="kpj-9e-Str" secondAttribute="bottom" constant="32" id="QBZ-o6-cAT"/>
                             <constraint firstAttribute="trailing" secondItem="e1u-6e-SW7" secondAttribute="trailing" id="Qcc-1e-yCV"/>
                             <constraint firstItem="e1u-6e-SW7" firstAttribute="leading" secondItem="ubQ-fb-qRO" secondAttribute="leading" id="RV9-i0-GOC"/>
                             <constraint firstItem="tsf-cV-gjW" firstAttribute="centerX" secondItem="ubQ-fb-qRO" secondAttribute="centerX" id="ZzL-Ee-Xl5"/>
                             <constraint firstItem="e1u-6e-SW7" firstAttribute="top" secondItem="tsf-cV-gjW" secondAttribute="bottom" constant="40" id="aQb-Au-veT"/>
-                            <constraint firstItem="tsf-cV-gjW" firstAttribute="top" secondItem="Ch9-t6-Pcx" secondAttribute="bottom" constant="58" id="n2O-lX-bb1"/>
+                            <constraint firstItem="tsf-cV-gjW" firstAttribute="top" secondItem="Ch9-t6-Pcx" secondAttribute="bottom" constant="50" id="n2O-lX-bb1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="37w-Ti-A4y"/>
@@ -115,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hJ-uj-AoC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="-615.74212893553226"/>
+            <point key="canvasLocation" x="-111" y="63"/>
         </scene>
         <!--Card Entry View Controller-->
         <scene sceneID="Qtc-zV-fk5">
@@ -277,7 +286,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="735" y="-426"/>
+            <point key="canvasLocation" x="666" y="63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fp4-n9-cr5">
@@ -288,7 +297,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bHy-E0-I1D" kind="relationship" relationship="rootViewController" id="CGp-mL-qhe"/>
+                        <segue destination="BdG-sO-kpj" kind="relationship" relationship="rootViewController" id="Hkc-9g-nfm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lku-hR-1cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
