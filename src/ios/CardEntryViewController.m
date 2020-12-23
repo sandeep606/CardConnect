@@ -159,12 +159,21 @@
     }];
 }
 
+
+- (NSString *)expirationDateForAccount:(CCCAccount *)account{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/yy"];
+    NSString* finalDateString = [dateFormatter stringFromDate:account.expirationDate];
+    return finalDateString;
+}
+
 -(void)postNotificationForAccount:(CCCAccount *)account andError:(NSString *)error andStatus:(NSString *)status{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 
     if (account){
         [dict setObject:account.token forKey:@"token"];
-        [dict setObject:account.expirationDate forKey:@"expiryDate"];
+        [dict setObject:[self expirationDateForAccount:account] forKey:@"expiryDate"];
     }
     [dict setObject:error forKey:@"error"];
     [dict setObject:status forKey:@"status"];
