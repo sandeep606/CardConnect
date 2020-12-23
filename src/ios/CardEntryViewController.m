@@ -174,6 +174,8 @@
     if (account){
         [dict setObject:account.token forKey:@"token"];
         [dict setObject:[self expirationDateForAccount:account] forKey:@"expiryDate"];
+        [dict setObject:account.expirationDate forKey:@"completeDate"];
+
     }
     [dict setObject:error forKey:@"error"];
     [dict setObject:status forKey:@"status"];
