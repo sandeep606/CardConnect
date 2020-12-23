@@ -150,26 +150,22 @@
 
         if (account)
         {
-//            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Token Generated" message:account.token preferredStyle:UIAlertControllerStyleAlert];
-//            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-//            [self presentViewController:alert animated:YES completion:nil];
-            [self postNotificationWithToken:account.token andError:@"" andStatus:@"1"];
+            [self postNotificationForAccount:account andError:@"" andStatus:@"1"];
         }
         else
         {
-            [self postNotificationWithToken:@"" andError:error.localizedDescription andStatus:@"0"];
-//            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-//            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-//            [self presentViewController:alert animated:YES completion:nil];
+            [self postNotificationForAccount:account andError:error.localizedDescription andStatus:@"0"];
         }
-        
-        ;
     }];
 }
 
--(void)postNotificationWithToken:(NSString *)token andError:(NSString *)error andStatus:(NSString *)status{
+-(void)postNotificationForAccount:(CCCAccount *)account andError:(NSString *)error andStatus:(NSString *)status{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:token forKey:@"token"];
+
+    if (account){
+        [dict setObject:account.token forKey:@"token"];
+        [dict setObject:account.expirationDate forKey:@"expiryDate"];
+    }
     [dict setObject:error forKey:@"error"];
     [dict setObject:status forKey:@"status"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TokenRecieved" object:nil userInfo:dict];
@@ -453,7 +449,7 @@
             self.restartReaderButton.enabled = YES;
         }]];
         [self presentViewController:alert animated:YES completion:nil];
-        [self postNotificationWithToken:account.token andError:@"" andStatus:@"1"];
+        [self postNotificationForAccount:account andError:@"" andStatus:@"1"];
     }
     else
     {
@@ -466,7 +462,7 @@
             self.restartReaderButton.enabled = YES;
         }]];
         [self presentViewController:alert animated:YES completion:nil];
-        [self postNotificationWithToken:@"" andError:@"An unknown error occurred" andStatus:@"0"];
+        [self postNotificationForAccount:account andError:@"An unknown error occurred" andStatus:@"0"];
     }
     
 }
@@ -506,7 +502,7 @@
         self.restartReaderButton.enabled = YES;
     }]];
     [self presentViewController:controller animated:YES completion:nil];
-    [self postNotificationWithToken:@"" andError:errorMessage andStatus:@"0"];
+    [self postNotificationForAccount:nil andError:errorMessage andStatus:@"0"];
 }
 
 - (void)swiper:(CCCSwiperController*)swiper foundDevices:(NSArray*)devices
