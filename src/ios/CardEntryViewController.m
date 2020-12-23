@@ -440,28 +440,28 @@
     
     if (account)
     {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Token Generated" message:account.token preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            completion();
-        }]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            self.restartReaderBlock = completion;
-            self.restartReaderButton.enabled = YES;
-        }]];
-        [self presentViewController:alert animated:YES completion:nil];
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Token Generated" message:account.token preferredStyle:UIAlertControllerStyleAlert];
+//        [alert addAction:[UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            completion();
+//        }]];
+//        [alert addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//            self.restartReaderBlock = completion;
+//            self.restartReaderButton.enabled = YES;
+//        }]];
+//        [self presentViewController:alert animated:YES completion:nil];
         [self postNotificationForAccount:account andError:@"" andStatus:@"1"];
     }
     else
     {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"An unknown error" preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            completion();
-        }]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            self.restartReaderBlock = completion;
-            self.restartReaderButton.enabled = YES;
-        }]];
-        [self presentViewController:alert animated:YES completion:nil];
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"An unknown error" preferredStyle:UIAlertControllerStyleAlert];
+//        [alert addAction:[UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            completion();
+//        }]];
+//        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//            self.restartReaderBlock = completion;
+//            self.restartReaderButton.enabled = YES;
+//        }]];
+//        [self presentViewController:alert animated:YES completion:nil];
         [self postNotificationForAccount:account andError:@"An unknown error occurred" andStatus:@"0"];
     }
     
@@ -491,17 +491,17 @@
         [errorMessage appendFormat:@"\n\n%@", [error.userInfo valueForKey:@"firmwareVersion"]];
     }
     
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@""
-                                                                        message:errorMessage
-                                                                 preferredStyle:UIAlertControllerStyleAlert];
-    [controller addAction:[UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        completion();
-    }]];
-    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        self.restartReaderBlock = completion;
-        self.restartReaderButton.enabled = YES;
-    }]];
-    [self presentViewController:controller animated:YES completion:nil];
+//    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@""
+//                                                                        message:errorMessage
+//                                                                 preferredStyle:UIAlertControllerStyleAlert];
+//    [controller addAction:[UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//        completion();
+//    }]];
+//    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        self.restartReaderBlock = completion;
+//        self.restartReaderButton.enabled = YES;
+//    }]];
+//    [self presentViewController:controller animated:YES completion:nil];
     [self postNotificationForAccount:nil andError:errorMessage andStatus:@"0"];
 }
 
